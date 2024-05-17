@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
+from src.constants import constant
 
 
 async def get_hostel_leave_slip(cookie):

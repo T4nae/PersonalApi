@@ -1,9 +1,9 @@
 import json
 from enum import Enum
 from bs4 import BeautifulSoup
-from api.constants import constant
+from src.constants import constant
 import aiohttp
-from api.utilities.clean_str_regex import regex_replace_str
+from src.utilities.clean_str_regex import regex_replace_str
 
 
 async def make_request(cookie):

@@ -1,11 +1,11 @@
 from fastapi import APIRouter
-from api.Config import settings
+from src.Config import settings
 from fastapi import Depends, status
-from api.schema import user_schema
-from api import services
-from api.scrapers.login_ums import placement_login
+from src.schema import user_schema
+from src import services
+from src.scrapers.login_ums import placement_login
 from typing import Annotated
-from api.scrapers.placement_portal import get_home_page_details, get_placement_drives
+from src.scrapers.placement_portal import get_home_page_details, get_placement_drives
 
 
 router = APIRouter(

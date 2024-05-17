@@ -1,24 +1,24 @@
 from fastapi import APIRouter, Depends
-from api.Config import settings
+from src.Config import settings
 from typing import Annotated
 from fastapi import status
-from api.schema import user_schema
-from api.scrapers.login_ums import (
+from src.schema import user_schema
+from src.scrapers.login_ums import (
     login_using_reg_no_ums_home,
 )
-from api.scrapers.user_message import get_user_messages
-from api.scrapers.user_course_syllabus import get_user_syllabus_with_attendance
-from api.scrapers.know_your_authorities import get_user_heads
-from api.scrapers.attendance_summary import (
+from src.scrapers.user_message import get_user_messages
+from src.scrapers.user_course_syllabus import get_user_syllabus_with_attendance
+from src.scrapers.know_your_authorities import get_user_heads
+from src.scrapers.attendance_summary import (
     get_attendance_summary,
     get_attendance_detail,
 )
-from api.scrapers.assignments_ums import get_all_assignments_and_marks
-from api.scrapers.exams_ums import get_exams_details
-from api.scrapers.pending_assignments_ums import get_pending_assignments
-from api.scrapers.cgpa_term_wise import get_cgpa_term_wise
-from api.scrapers.marks_term_wise import get_marks_term_wise
-from api import services
+from src.scrapers.assignments_ums import get_all_assignments_and_marks
+from src.scrapers.exams_ums import get_exams_details
+from src.scrapers.pending_assignments_ums import get_pending_assignments
+from src.scrapers.cgpa_term_wise import get_cgpa_term_wise
+from src.scrapers.marks_term_wise import get_marks_term_wise
+from src import services
 import asyncio
 
 router = APIRouter(

@@ -1,9 +1,9 @@
 from fastapi import APIRouter
-from api.Config import settings
+from src.Config import settings
 from fastapi import Depends, status
-from api.schema import user_schema
-from api.scrapers.announcements_ums import get_all_annoucements
-from api import services
+from src.schema import user_schema
+from src.scrapers.announcements_ums import get_all_annoucements
+from src import services
 from typing import Annotated
 
 router = APIRouter(

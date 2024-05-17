@@ -1,5 +1,5 @@
 import aiohttp
-from api.constants import constant
+from src.constants import constant
 import json
 
 

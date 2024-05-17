@@ -1,7 +1,7 @@
 #! It will send back today's class and  user's Roll_No mapped with course Code
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
+from src.constants import constant
 
 
 async def get_todays_class_and_attendance(cookie):

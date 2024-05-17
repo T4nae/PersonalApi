@@ -1,14 +1,14 @@
-from api.schema import user_schema
-from api.constants import constant
+from src.schema import user_schema
+from src.constants import constant
 import aiohttp
 import json
-from api.scrapers.login_ums import (
+from src.scrapers.login_ums import (
     check_auth_status_ums_home,
     login_using_reg_no_ums_home,
     check_auth_status_placement_portal,
     placement_login,
 )
-from api.utilities.clean_str_regex import regex_replace_str
+from src.utilities.clean_str_regex import regex_replace_str
 
 
 async def get_user_details(user: user_schema.UserRequests):

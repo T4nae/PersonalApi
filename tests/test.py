@@ -1,6 +1,6 @@
-from api.index import app
+from src.index import app
 from fastapi.testclient import TestClient
-from api.Config import settings
+from src.Config import settings
 
 client = TestClient(app)
 
@@ -187,7 +187,7 @@ def test_todays_drives():
 
 def test_search_user_on_lpu():
     resp = client.get(
-        "api/v1/misc/search_user?id=Ranit Naha",  # api/v1/misc/search_user?id=reg_no
+        "api/v1/misc/search_user?id=Ranit Naha",  # src/v1/misc/search_user?id=reg_no
     )
     assert resp.status_code == 200
     assert isinstance(resp.json()["users"], list)

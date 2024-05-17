@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Response
-from api.Config import settings
+from src.Config import settings
 from fastapi import Depends, status
-from api.schema import user_schema
-from api import services
-from api.scrapers.hostel_electricity_ums import get_hosteler_details
-from api.scrapers.hostel_leave_slip_ums import get_hostel_leave_slip
+from src.schema import user_schema
+from src import services
+from src.scrapers.hostel_electricity_ums import get_hosteler_details
+from src.scrapers.hostel_leave_slip_ums import get_hostel_leave_slip
 from typing import Annotated
 
 router = APIRouter(

@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
-from api.schema.user_schema import UserLogin
-from api import error_status
+from src.constants import constant
+from src.schema.user_schema import UserLogin
+from src import error_status
 import json
 
 

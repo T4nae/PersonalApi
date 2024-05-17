@@ -1,11 +1,11 @@
 from fastapi import APIRouter
-from api.Config import settings
+from src.Config import settings
 from fastapi import Depends, status
-from api.schema import user_schema
-from api.scrapers.ums_home_today_class import get_todays_class_and_attendance
-from api.scrapers.get_time_table import get_time_table_details
-from api.scrapers.makeup_ums import get_makeup_classes
-from api import services
+from src.schema import user_schema
+from src.scrapers.ums_home_today_class import get_todays_class_and_attendance
+from src.scrapers.get_time_table import get_time_table_details
+from src.scrapers.makeup_ums import get_makeup_classes
+from src import services
 from typing import Annotated
 
 

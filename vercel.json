@@ -1,5 +1,5 @@
 {
-  "devCommand": "python -m uvicorn api.main:app --reload",
+  "devCommand": "python -m uvicorn src.main:app --reload",
   "routes": [
     {
       "src": "/(.*)",

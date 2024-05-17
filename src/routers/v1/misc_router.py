@@ -1,13 +1,13 @@
 import requests
 from fastapi import APIRouter
-from api.Config import settings
+from src.Config import settings
 from fastapi import Depends, status
-from api.schema import user_schema
-from api import services
-from api.scrapers.placement_drives_ums import get_placement_drives
-from api import error_status
+from src.schema import user_schema
+from src import services
+from src.scrapers.placement_drives_ums import get_placement_drives
+from src import error_status
 from typing import Annotated
-from api.Config import settings
+from src.Config import settings
 
 router = APIRouter(
     prefix=settings.BASE_API_V1 + "/misc",

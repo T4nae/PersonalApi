@@ -1,8 +1,8 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from api.utilities.getUptime import getUptime
+from src.utilities.getUptime import getUptime
 from fastapi.middleware.cors import CORSMiddleware
-from api.routers.v1 import (
+from src.routers.v1 import (
     user_router,
     time_table_router,
     announcement_router,
@@ -12,7 +12,7 @@ from api.routers.v1 import (
 )
 from mangum import Mangum
 import time
-from api.Config import settings
+from src.Config import settings
 
 startTime = time.time()
 

@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
-from api.utilities.clean_str_regex import regex_replace_str
+from src.constants import constant
+from src.utilities.clean_str_regex import regex_replace_str
 import json
 
 

@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
+from src.constants import constant
 from requests.utils import requote_uri
 import re
-from api.utilities.clean_str_regex import regex_replace_str
+from src.utilities.clean_str_regex import regex_replace_str
 
 
 async def get_all_assignments_and_marks(cookie):

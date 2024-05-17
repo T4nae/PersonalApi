@@ -1,9 +1,9 @@
 from bs4 import BeautifulSoup
 import aiohttp
-from api.constants import constant
+from src.constants import constant
 import json
 import re
-from api.utilities.clean_str_regex import regex_replace_str
+from src.utilities.clean_str_regex import regex_replace_str
 
 
 async def get_cgpa_term_wise(cookie):
