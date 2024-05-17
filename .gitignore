@@ -1,4 +1,9 @@
 /.venv
-/tests
-/.env
+/src/__pycache__
 .vercel
+/src/utilities/__pycache__
+/src/scrapers/__pycache__
+/src/schema/__pycache__
+/src/routers/__pycache__
+/src/constants/__pycache__
+/src/routers/v1/__pycache__
