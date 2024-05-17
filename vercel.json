@@ -1,5 +1,6 @@
 {
-  "devCommand": "python -m uvicorn api.main:app --reload",
+  "devCommand": "pip install -r requirements.txt && python -m uvicorn api.main:app --reload",
+  "outputDirectory": ".",
   "routes": [
     {
         "src": "/(.*)",
