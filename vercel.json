@@ -1,0 +1,14 @@
+{
+  "devCommand": "python -m uvicorn api.main:app --reload",
+  "routes": [
+    {
+        "src": "/(.*)",
+        "dest": "api/index.py"
+    }
+  ],
+  "functions": {
+    "api/index.py": {
+      "maxDuration": 60
+    }
+  }
+}
