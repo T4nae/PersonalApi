@@ -1,5 +1,4 @@
 {
-  "devCommand": "uvicorn src.main:app --host 0.0.0.0 --port 8000",
   "routes": [
     {
       "src": "/(.*)",
@@ -8,7 +7,8 @@
   ],
   "functions": {
     "api/index.py": {
-      "maxDuration": 60
+      "maxDuration": 60,
+      "runtime": "@vercel/python@4.1.0"
     }
   }
 }
