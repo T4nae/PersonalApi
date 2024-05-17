@@ -1,4 +1,4 @@
-from src.index import app
+from src.main import app
 from fastapi.testclient import TestClient
 from src.Config import settings
 
