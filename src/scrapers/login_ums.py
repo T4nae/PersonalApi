@@ -26,7 +26,8 @@ async def login_using_reg_no_ums_home(user: UserLogin):
             ]
             __SCROLLPOSITIONX = "0"
             __SCROLLPOSITIONY = "0"
-            __EVENTVALIDATION = soup.find("input", {"id": "__EVENTVALIDATION"})["value"]
+            __EVENTVALIDATION = soup.find(
+                "input", {"id": "__EVENTVALIDATION"})["value"]
             txtU = user.reg_no
             TxtpwdAutoId_8767 = user.password
             DropDownList1 = "1"
@@ -56,7 +57,8 @@ async def login_using_reg_no_ums_home(user: UserLogin):
                 html = await res.text()
                 soup = BeautifulSoup(html, "lxml")
 
-                __VIEWSTATE = soup.find("input", {"id": "__VIEWSTATE"})["value"]
+                __VIEWSTATE = soup.find(
+                    "input", {"id": "__VIEWSTATE"})["value"]
                 __VIEWSTATEGENERATOR = soup.find(
                     "input", {"id": "__VIEWSTATEGENERATOR"}
                 )["value"]
@@ -78,9 +80,8 @@ async def login_using_reg_no_ums_home(user: UserLogin):
                     "__EVENTVALIDATION": (__EVENTVALIDATION),
                     "txtU": txtU,
                     "TxtpwdAutoId_8767": TxtpwdAutoId_8767,
-                    "DropDownList1": DropDownList1,
                     "ddlStartWith": ddlStartWith,
-                    "iBtnLogins150203125": "Login"
+                    "iBtnLogins150203125": "Login",
                     # "iBtnLogins.x": iBtnLogins_x,
                     # "iBtnLogins.y": iBtnLogins_y,
                 }
@@ -115,7 +116,8 @@ async def placement_login(user: UserLogin):
             __VIEWSTATEGENERATOR = soup.find("input", {"id": "__VIEWSTATEGENERATOR"})[
                 "value"
             ]
-            __EVENTVALIDATION = soup.find("input", {"id": "__EVENTVALIDATION"})["value"]
+            __EVENTVALIDATION = soup.find(
+                "input", {"id": "__EVENTVALIDATION"})["value"]
 
             #! Payload just with reg_number.
             payload_with_reg_no_only = {
@@ -150,15 +152,15 @@ async def check_auth_status_ums_home(cookie) -> bool:
         headers = constant.USER_AGENT_JSON
         headers["Cookie"] = cookie
         resp = await session.post(
-            constant.UMS_AUTH_STATE_CHECK_URL, headers=headers, data=json.dumps({})
+            constant.UMS_STUDENT_PHONE_NUMBER_URL,
+            headers=headers,
+            data=json.dumps({}),
         )
         rs_json = await resp.json()
         await session.close()
-        if rs_json["d"] is None:
+        if rs_json.get("d", {}) is None:
             return False
-        elif len(rs_json["d"]) >= 0:
-            return True
-        return False
+        return True
 
 
 async def check_auth_status_placement_portal(cookie) -> bool:
