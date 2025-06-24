@@ -7,7 +7,7 @@ async def get_all_annoucements(cookie):
     url = constant.UMS_ANNOUNCEMENT_URL
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.post(
             url, headers=headers, data=json.dumps(
                 {"LoginId": "Reg", "Type": "S"})

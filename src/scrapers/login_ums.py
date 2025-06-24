@@ -9,7 +9,7 @@ import json
 async def login_using_reg_no_ums_home(user: UserLogin):
     url = constant.UMS_LOGIN_URL
     headers = constant.USER_AGENT_FORM_URL_ENCODED
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(
             url,
             headers=headers,
@@ -104,7 +104,7 @@ async def login_using_reg_no_ums_home(user: UserLogin):
 async def placement_login(user: UserLogin):
     url = constant.UMS_PLACEMENT_LOGIN
     headers = constant.USER_AGENT_FORM_URL_ENCODED
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(
             url,
             headers=headers,
@@ -148,7 +148,7 @@ async def placement_login(user: UserLogin):
 
 
 async def check_auth_status_ums_home(cookie) -> bool:
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         headers = constant.USER_AGENT_JSON
         headers["Cookie"] = cookie
         resp = await session.post(
@@ -164,7 +164,7 @@ async def check_auth_status_ums_home(cookie) -> bool:
 
 
 async def check_auth_status_placement_portal(cookie) -> bool:
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         headers = constant.USER_AGENT_FORM_URL_ENCODED
         headers["Cookie"] = cookie
         resp = await session.get(

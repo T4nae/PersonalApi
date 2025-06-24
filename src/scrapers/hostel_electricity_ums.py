@@ -7,7 +7,7 @@ async def get_electricity_meter(cookie):
     url = constant.UMS_ELECTRICITY_BILL_CHECK_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(
             url,
             headers=headers,
@@ -33,7 +33,7 @@ async def get_hosteler_details(cookie):
     url = constant.UMS_HOSTELER_DETAILS_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(
             url,
             headers=headers,

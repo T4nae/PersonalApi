@@ -7,7 +7,7 @@ from src.utilities.clean_str_regex import regex_replace_str
 
 
 async def make_request(cookie):
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         header = constant.USER_AGENT_ONLY
         header["Cookie"] = cookie
         async with session.post(

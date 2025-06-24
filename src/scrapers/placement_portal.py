@@ -9,7 +9,7 @@ async def get_home_page_details(cookie: str):
     url = constant.UMS_PLACEMENT_PORTAL_HOME_PAGE
     header = constant.USER_AGENT_ONLY
     header["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(
             url,
             headers=header,
@@ -202,7 +202,7 @@ async def get_placement_drives(cookie):
     url = constant.UMS_PLACEMENT_PORTAL_DRIVE_REGISTRATION
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(url, headers=headers) as res:
             html = await res.text()
             soup = BeautifulSoup(html, "lxml")

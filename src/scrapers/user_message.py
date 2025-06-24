@@ -9,7 +9,7 @@ async def get_user_messages(cookie):
     url = constant.UMS_USER_MESSAGES
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.post(url, headers=headers, data=json.dumps({})) as res:
             html = await res.json()
             soup = BeautifulSoup(html["d"], "lxml")

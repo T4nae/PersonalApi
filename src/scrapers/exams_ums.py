@@ -7,7 +7,7 @@ async def get_exams_details(cookie):
     url = constant.UMS_EXAM_SEATING_PLAN_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.get(url, headers=headers) as res:
             html = await res.text()
             soup = BeautifulSoup(html, "lxml")

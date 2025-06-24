@@ -8,7 +8,7 @@ async def get_user_heads(cookie):
     url = constant.UMS_KNOW_YOUR_AUTHORITIES_URL
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession() as session:
+    async with aiohttp.ClientSession(verify_ssl=False) as session:
         async with session.post(url, headers=headers, data=json.dumps({})) as res:
             html = await res.json()
             soup = BeautifulSoup(html["d"], "lxml")
