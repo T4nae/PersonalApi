@@ -7,7 +7,7 @@ async def get_makeup_classes(cookie):
     url = constant.UMS_MAKEUP_CLASSES_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get(
             url,
             headers=headers,

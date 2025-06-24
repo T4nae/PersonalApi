@@ -8,7 +8,7 @@ async def get_user_syllabus_with_attendance(cookie):
     url = constant.UMS_USER_COURSE_SYLLABUS
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, data=json.dumps({})) as res:
             html = await res.json()
             soup = BeautifulSoup(html["d"], "lxml")

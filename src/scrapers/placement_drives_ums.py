@@ -8,7 +8,7 @@ async def get_placement_drives(cookie):
     url = constant.UMS_PLACEMENT_DRIVES_URL
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, data=json.dumps({})) as res:
             html = await res.json()
             soup = BeautifulSoup(html["d"], "lxml")

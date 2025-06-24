@@ -8,7 +8,7 @@ async def get_todays_class_and_attendance(cookie):
     url = constant.UMS_HOME_PAGE_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get(
             url,
             headers=headers,

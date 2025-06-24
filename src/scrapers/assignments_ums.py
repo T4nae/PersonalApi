@@ -10,7 +10,7 @@ async def get_all_assignments_and_marks(cookie):
     url = constant.UMS_ASSIGMENTS_MARKS_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get(url, headers=headers) as res:
             html = await res.text()
             soup = BeautifulSoup(html, "lxml")
@@ -25,7 +25,7 @@ async def get_all_assignments_and_marks(cookie):
             soup.decompose()
             headers = constant.USER_AGENT_FORM_URL_ENCODED
             headers["Cookie"] = cookie
-            async with aiohttp.ClientSession(verify_ssl=False) as session:
+            async with aiohttp.ClientSession() as session:
                 async with session.post(url, headers=headers, data=payload) as res:
                     assignments = {"theory": [], "practical": []}
                     html = await res.text()

@@ -10,7 +10,7 @@ async def get_cgpa_term_wise(cookie):
     url = constant.UMS_CGPA_TERM_WISE_URL
     headers = constant.USER_AGENT_JSON
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.post(url, headers=headers, data=json.dumps({})) as res:
             html = await res.json()
             soup = BeautifulSoup(html["d"], "lxml")

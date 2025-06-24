@@ -7,7 +7,7 @@ async def get_hostel_leave_slip(cookie):
     url = constant.UMS_HOSTEL_LEAVE_SLIP_URL
     headers = constant.USER_AGENT_ONLY
     headers["Cookie"] = cookie
-    async with aiohttp.ClientSession(verify_ssl=False) as session:
+    async with aiohttp.ClientSession() as session:
         async with session.get(
             url,
             headers=headers,
